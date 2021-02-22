@@ -13,17 +13,19 @@ public class Source {
 
     /**
      * Constructor wtih one parameter
-     * @param capacity it is used to initialise the capacity member
+     *
+     * @param capacity is used to initialise the capacity member
      */
     public Source(int capacity) {
         this.capacity = capacity;
     }
 
     /**
-     *Constructor with three parameters
-     * @param capacity it is used to initialise the capacity member
-     * @param sourceType it is used to initialise the sourceType member
-     * @param name it is used to initialise the name member
+     * Constructor with three parameters
+     *
+     * @param capacity   is used to inialise the capacity member
+     * @param sourceType is used to initialise the sourceType member
+     * @param name       is used to initialise the name member
      */
     public Source(int capacity, SourceType sourceType, String name) {
         this.capacity = capacity;
@@ -32,9 +34,10 @@ public class Source {
     }
 
     /**
-     *Constructor with two parameters
-     * @param sourceType it is used to initialise the sourceType member
-     * @param name it is used to initialise the name member
+     * Constructor with two parameters
+     *
+     * @param sourceType is used to initialise the sourceType member
+     * @param name       is used to initialise the name member
      */
     public Source(SourceType sourceType, String name) {
         this.sourceType = sourceType;
@@ -43,6 +46,7 @@ public class Source {
 
     /**
      * Function for get the capacity member
+     *
      * @return the capacity
      */
     public int getCapacity() {
@@ -50,15 +54,13 @@ public class Source {
     }
 
     /**
-     *
-     * @param capacity it is used to modify the sourceType member
+     * @param capacity is used to modify the sourceType member
      */
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
     /**
-     *
      * @return the sourceType
      */
     public SourceType getSourceType() {
@@ -66,15 +68,13 @@ public class Source {
     }
 
     /**
-     *
-     * @param sourceType it is used to modify the sourceType member
+     * @param sourceType is used to modify the sourceType member
      */
     public void setSourceType(SourceType sourceType) {
         this.sourceType = sourceType;
     }
 
     /**
-     *
      * @return the name member
      */
     public String getName() {
@@ -82,8 +82,7 @@ public class Source {
     }
 
     /**
-     *
-     * @param name it is used to modify the name member
+     * @param name is used to modify the name member
      */
     public void setName(String name) {
         this.name = name;

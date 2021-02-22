@@ -6,10 +6,10 @@ public class Destination {
 
     public Destination() {
         this(0, "");
+
     }
 
     /**
-     *
      * @param demand it is used to initialise the demand member
      */
     public Destination(int demand) {
@@ -17,7 +17,6 @@ public class Destination {
     }
 
     /**
-     *
      * @param name it is used to intialise the name member
      */
     public Destination(String name) {
@@ -25,9 +24,8 @@ public class Destination {
     }
 
     /**
-     *
      * @param demand it is used to intialise the demand  member
-     * @param name it is used to intialise the name member
+     * @param name   it is used to intialise the name member
      */
     public Destination(int demand, String name) {
         this.name = name;
@@ -35,7 +33,6 @@ public class Destination {
     }
 
     /**
-     *
      * @param name it is used to modify the name member
      */
     public void setName(String name) {
@@ -43,7 +40,6 @@ public class Destination {
     }
 
     /**
-     *
      * @return the name member
      */
     public String getName() {
@@ -51,7 +47,6 @@ public class Destination {
     }
 
     /**
-     *
      * @param demand it is used to modify the demand member
      */
     public void setDemand(int demand) {
@@ -59,7 +54,6 @@ public class Destination {
     }
 
     /**
-     *
      * @return the demand member
      */
     public int getDemand() {
