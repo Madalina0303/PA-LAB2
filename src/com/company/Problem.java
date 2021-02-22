@@ -53,7 +53,7 @@ public class Problem {
         System.out.println("S1 " + s1.getCapacity());
         System.out.println("S2 " + s2.getCapacity());
         System.out.println("S3 " + s3.getCapacity());
-
+      //////mmhgggggg
 
     }
 
