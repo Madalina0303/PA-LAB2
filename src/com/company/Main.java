@@ -10,10 +10,6 @@ public class Main {
         s1.setCapacity(10);
         Source s2 = new Source(35, SourceType.WAREHOUSE, "Source2");
         Source s3 = new Source(25, SourceType.WAREHOUSE, "Source3");
-        ArrayList<Source> sources = new ArrayList<Source>();
-        sources.add(s1);
-        sources.add(s2);
-        sources.add(s3);
 
         // create the instances for Destination class
         Destination d1 = new Destination();
@@ -21,28 +17,27 @@ public class Main {
         d1.setName("Destination1");
         Destination d2 = new Destination(25, "Destination2");
         Destination d3 = new Destination(25);
-        d3.setName("Destination3");
-        ArrayList<Destination> dest = new ArrayList<Destination>();
-        dest.add(d1);
-        dest.add(d2);
-        dest.add(d3);
 
-        Problem app = new Problem();
+        Problem app = new Problem(3,3);
+        app.addSource(s1);
+        app.addSource(s2);
+        app.addSource(s3);
+        app.addDestination(d1);
+        app.addDestination(d2);
+        app.addDestination(d3);
 
-        app.fillMatrix();  // fill de matrix of cost
+       int[][] cost1={{2,3,1},{5,4,8},{5,6,8}};
 
+        app.setCost(cost1, 3, 3);
         System.out.println(app.toString());  // print the matrix of cost
 
-        for (Source s : sources) {
+        for (Source s : app.getSource()) {
             System.out.print(s.getCapacity() + " ");
         }
         System.out.println();
-        for (Destination d : dest) {
+        for (Destination d : app.getDestination()) {
             System.out.print(d.getDemand() + " ");
         }
-        //app.printSupply(s1, s2, s3); //print the capacity/ supply  for every source
-
-        //  app.printDemand(d1, d2, d3);   // print the demand for every destination
 
     }
 }

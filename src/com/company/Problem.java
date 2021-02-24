@@ -1,59 +1,93 @@
 package com.company;
 
+import sun.security.krb5.internal.crypto.Des;
+
+import java.util.ArrayList;
+
 public class Problem {
 
-    static int[][] cost = new int[4][4];
+    private int[][] cost;
+    private int nrSource; // numar de linii+nr de surse
+    private int nrDestination; // numar de coloane + nr de destinatii
+    private ArrayList<Source> source;
+    private ArrayList<Destination> destination;
 
-    public void fillMatrix() {
-        Problem app = new Problem();
-        app.setValue(1, 1, 2);
-        app.setValue(1, 2, 3);
-        app.setValue(1, 3, 1);
-        app.setValue(2, 1, 5);
-        app.setValue(2, 2, 4);
-        app.setValue(2, 3, 8);
-        app.setValue(3, 1, 5);
-        app.setValue(3, 2, 6);
-        app.setValue(3, 3, 8);
+    public Problem() {
+        this(0, 0);
+    }
 
+    public Problem(int nrSource, int nrDestination) {
+        this.nrSource = nrSource;
+        this.nrDestination = nrDestination;
+        cost = new int[nrSource][nrSource];
+        source = new ArrayList<>(nrSource);
+        destination = new ArrayList<>(nrDestination);
 
     }
 
-    public void printSupply(Source s1, Source s2, Source s3) {
-        System.out.println("Source's supply: ");
-        System.out.println("S1 " + s1.getCapacity());
-        System.out.println("S2 " + s2.getCapacity());
-        System.out.println("S3 " + s3.getCapacity());
-
-
-    }
-
-    public void printDemand(Destination d1, Destination d2, Destination d3) {
-        //print the demand for every Destination
-        System.out.println("Destination's demand: ");
-        System.out.println("D1 " + d1.getDemand());
-        System.out.println("D2 " + d2.getDemand());
-        System.out.println("D3 " + d3.getDemand());
-
-    }
-
-    public void setValue(int i, int j, int value) {
+    /*public void setCostValue(int i, int j, int value) {
         cost[i][j] = value;
 
+    }*/
+    public void setCost(int[][] cost1, int nrSorce1, int nrDestination1) {
+        nrSource = nrSorce1;
+        nrDestination = nrDestination1;
+        for (int i = 0; i < cost1.length; i++)
+            System.arraycopy(cost1[i], 0, cost[i], 0, cost1[i].length);
     }
 
-    public int getValue(int i, int j) {
-        return cost[i][j];
+    /* public int getCostValue(int i, int j) {
+         return cost[i][j];
+     }*/
+    public int[][] getCost() {
+        return cost;
     }
 
+    public int getNrDestination() {
+        return nrDestination;
+    }
+
+    public int getNrSource() {
+        return nrSource;
+    }
+
+    public void setNrSource(int nrSource) {
+        this.nrSource = nrSource;
+    }
+
+    public void setNrDestination(int nrDestination) {
+        this.nrDestination = nrDestination;
+    }
+    public void addSource( Source s) {
+        source.add(s);
+    }
+
+    public ArrayList<Source> getSource() {
+        return source;
+    }
+
+    public void removeSource(Source s) {
+
+        source.remove(s);
+    }
+    public void addDestination( Destination d){
+        destination.add(d);
+    }
+    public void removeDestination( Destination d){
+        destination.remove(d);
+    }
+
+    public ArrayList<Destination> getDestination() {
+        return destination;
+    }
 
     @Override
     public String toString() {
 
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 1; i < cost.length; i++) {
-            for (int j = 1; j < cost[i].length; j++) {
+        for (int i = 0; i < cost.length; i++) {
+            for (int j = 0; j < cost[i].length; j++) {
 
                 sb.append(cost[i][j]);
                 sb.append(" ");
