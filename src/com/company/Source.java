@@ -57,6 +57,7 @@ public class Source {
      * @param capacity is used to modify the sourceType member
      */
     public void setCapacity(int capacity) {
+        if(capacity>0)
         this.capacity = capacity;
     }
 

@@ -50,6 +50,7 @@ public class Destination {
      * @param demand it is used to modify the demand member
      */
     public void setDemand(int demand) {
+        if(demand>0)
         this.demand = demand;
     }
 

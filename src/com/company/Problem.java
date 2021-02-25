@@ -30,12 +30,13 @@ public class Problem {
 
     }*/
     public void setCost(int[][] cost1, int nrSorce1, int nrDestination1) {
-        nrSource = nrSorce1;
-        nrDestination = nrDestination1;
-        for (int i = 0; i < cost1.length; i++)
-            System.arraycopy(cost1[i], 0, cost[i], 0, cost1[i].length);
+        if (checkConstraint() == 1) {
+            nrSource = nrSorce1;
+            nrDestination = nrDestination1;
+            for (int i = 0; i < cost1.length; i++)
+                System.arraycopy(cost1[i], 0, cost[i], 0, cost1[i].length);
+        }
     }
-
     /* public int getCostValue(int i, int j) {
          return cost[i][j];
      }*/
@@ -58,7 +59,8 @@ public class Problem {
     public void setNrDestination(int nrDestination) {
         this.nrDestination = nrDestination;
     }
-    public void addSource( Source s) {
+
+    public void addSource(Source s) {
         source.add(s);
     }
 
@@ -70,10 +72,12 @@ public class Problem {
 
         source.remove(s);
     }
-    public void addDestination( Destination d){
+
+    public void addDestination(Destination d) {
         destination.add(d);
     }
-    public void removeDestination( Destination d){
+
+    public void removeDestination(Destination d) {
         destination.remove(d);
     }
 
@@ -97,4 +101,14 @@ public class Problem {
         return sb.toString();
     }
 
+    public int checkConstraint() {
+        int s1 = 0, s2 = 0;
+        for (Source s : source)
+            s1 = s1 + s.getCapacity();
+        for (Destination d : destination)
+            s2 = s2 + d.getDemand();
+        if (s1 >= s2)
+            return 1;
+        return 0;
+    }
 }
